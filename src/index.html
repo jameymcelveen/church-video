@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>updater</title>
+</head>
+<body>
+<div id="version"></div>
+<div id="loaded"></div>
+<button onclick="checkForUpdates()">Check For Updates</button>
+<script src="scripts/autoupdate.js"></script>
+<script>
+
+    // Load native UI library
+    var gui = require('nw.gui');
+
+    // Create a tray icon
+    var tray = new gui.Tray({ title: 'Tray', icon: 'assets/img/Status.png' });
+
+    // Give it a menu
+    var menu = new gui.Menu();
+    menu.append(new gui.MenuItem({ type: 'checkbox', label: 'box1' }));
+    tray.menu = menu;
+
+    var path = require('path');
+    var execPath = path.dirname( process.execPath );
+    console.log("WORKING_DIR=" + execPath );
+    var autoUpdate = new autoUpdate();
+    var checkForUpdates = function(){};
+    var pkg;
+
+    try {
+        pkg = require('./package.json'); // Insert your app's manifest here
+        console.log(pkg.version);
+        checkForUpdates = function() {
+            console.log('checking for updates');
+            autoUpdate.run(pkg);
+        }
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+
+</script>
+</body>
+</html>

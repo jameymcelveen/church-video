@@ -1,0 +1,26 @@
+{
+  "name": "Church Video",
+  "main": "index.html",
+  "version": "0.1.0",
+  "author": "Jamey McElveen <jamey@mcelveen.us>",
+  "window": {
+    //"show": false,
+    "toolbar": false
+  },
+  "manifestUrl": "https://raw.githubusercontent.com/jameymcelveen/church-video/master/build/package.json",
+  "packages": {
+    "mac": {
+      "url": "https://raw.githubusercontent.com/jameymcelveen/church-video/master/build/mac/ChurchVideo.zip"
+    },
+    "win": {
+      "url": "https://raw.githubusercontent.com/jameymcelveen/church-video/master/build/win/ChurchVideo.zip"
+    },
+    "linux32": {
+      "url": "https://raw.githubusercontent.com/jameymcelveen/church-video/master/build/linux32/ChurchVideo.tar.gz"
+    }
+  },
+  "dependencies": {
+    "node-webkit-updater": "^0.2.4"
+  }
+}
+w
